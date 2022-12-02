@@ -24,7 +24,7 @@ const getCompliment = () => {
 };
 
 const getFortune = () => {
-    axios.get("http://localhost:4000/api/compliment/")
+    axios.get("http://localhost:4000/api/fortune/")
         .then(res =>{
             const fortuneData = res.data;
             //console.log()
@@ -36,7 +36,7 @@ const getFortune = () => {
 
 const getName = (evt) =>{
     evt.preventDefault()
-    axios.post("http://localhost:4000/api/compliment/")
+    axios.post("http://localhost:4000/api/name/")
         .then(res => {
             let data = res
 

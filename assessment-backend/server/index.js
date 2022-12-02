@@ -13,7 +13,7 @@ const {getFortune} = require('./controller')
 
 
 app.get("/api/compliment", getCompliment);
-app.get("/api/compliment", getFortune);
-app.push("/api/compliment",nameInput);
+app.get("/api/fortune", getFortune);
+app.push("/api/name",nameInput);
 
 app.listen(4000, () => console.log("Server running on 4000"));
