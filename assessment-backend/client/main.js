@@ -2,7 +2,7 @@ const complimentBtn = document.getElementById("complimentButton")
 const complimentDiv = document.querySelector("#complimentCat")
 const fortuneBtn = document.getElementById("fortuneButton")
 const fortuneDiv = document.querySelector("#fortuneFrog")
-const nameInput = document.querySelector("input")
+// const nameInput = document.querySelector("input")
 
 const clearComp = ()=>{
     complimentDiv.innerHTML =`Complement Cat says:`
@@ -34,16 +34,16 @@ const getFortune = () => {
         });clearFort()
 };
 
-const getName = (evt) =>{
-    evt.preventDefault()
-    axios.post("http://localhost:4000/api/name/")
-        .then(res => {
-            let data = res
+// const addName = (evt) =>{
+//     evt.preventDefault()
+//     axios.post("http://localhost:4000/api/name")
+//         .then(res => {
+//             let data = res.data
 
-        })
-}
+//         })
+// }
 
 
-nameInput.addEventListener('submit', getName)
+// nameInput.addEventListener('submit', addName)
 complimentBtn.addEventListener('click', getCompliment)
 fortuneBtn.addEventListener('click', getFortune)
