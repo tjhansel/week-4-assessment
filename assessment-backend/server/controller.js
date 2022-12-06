@@ -16,8 +16,5 @@ module.exports = {
 
         res.status(200).send(randomFortune);
     },
-    // addName: (req, res)=>{
-    //     let{name}= req.body
-    //     let yourName = 
-    // },
+    
 }

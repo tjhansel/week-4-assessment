@@ -2,7 +2,8 @@ const complimentBtn = document.getElementById("complimentButton")
 const complimentDiv = document.querySelector("#complimentCat")
 const fortuneBtn = document.getElementById("fortuneButton")
 const fortuneDiv = document.querySelector("#fortuneFrog")
-// const nameInput = document.querySelector("input")
+const inputName = document.getElementById("#nameInput") // I couldn't figure out how to add the name here. The value kept coming back as null. I was trying to add a place holder but nothing worked. It seems so easy to just have someone add their name, but it was not.
+console.log(inputName)
 
 const clearComp = ()=>{
     complimentDiv.innerHTML =`Complement Cat says:`
@@ -10,10 +11,15 @@ const clearComp = ()=>{
 const clearFort =()=>{
     fortuneDiv.innerHTML =`Fortune Frog says:`
 }
+function getName() {
+    var name = document.getElementById("#nameInput").value;
+    document.getElementById("#nameInput").innerHTML = name;
+  } // at this point I am not even sure this code goes here. Maybe it belongs in the controller file? Who knows?
+
 
 const getCompliment = () => {
     
-    axios.get("http://localhost:4000/api/compliment/")
+    axios.get("http://localhost:4000/api/compliment")
         .then(res => {
             const data = res.data;
             // alert(data);
@@ -34,16 +40,16 @@ const getFortune = () => {
         });clearFort()
 };
 
-// const addName = (evt) =>{
-//     evt.preventDefault()
-//     axios.post("http://localhost:4000/api/name")
-//         .then(res => {
-//             let data = res.data
+const addName = (inputName) =>{
+    inputName.preventDefault()
+    axios.post("http://localhost:4000/api/name")
+        .then(res => {
+            let name = res.inputName
+            alert(`Thank you, ${name}!`)
+        })
+}
+// I would have also added a axios.post here to allow the user to add a compliment to the listed compliments.
 
-//         })
-// }
-
-
-// nameInput.addEventListener('submit', addName)
+// inputName.addEventListener('click', addName)
 complimentBtn.addEventListener('click', getCompliment)
 fortuneBtn.addEventListener('click', getFortune)
