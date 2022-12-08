@@ -9,15 +9,15 @@ app.use(express.json());
 
 const fController = require('./controller')
 
-const {addName} = fController
-const { getCompliment } = fController
-const {getFortune} = fController
+const {addName, getCompliment, getFortune} = fController
+
 
 
 app.get("/api/compliment", getCompliment);
 app.get("/api/fortune", getFortune);
 app.post("/api/name", (req,res) =>{
-    let name = req.body.name
+   console.log(req.body)
+    let name = req.body.nameInput
     res.status(200).send(`Hello ${name}! It is time for your fortune.`)
 })
 
